@@ -1,0 +1,14 @@
+int main:
+uv_fs_open uv_default_loop()
+	cb=on_read
+uv_run uv_default_loop() UV_RUN_DEFAULT
+uv_fs_req_cleanup
+
+
+void on_read: uv_fs_t *req
+uv_fs_write uv_default_loop()
+	cb=on_write
+
+void on_write: uv_fs_t *req
+uv_fs_read uv_default_loop()
+	cb=on_read
